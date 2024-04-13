@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memórias Terceirão</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/img/LOGO303T.png">
+</head>
+<body>
+  <header>
+    <img src="/img/Header.png" alt="memorias" class="logo">
+  </header>
+  
+
+<div class="navbar">
+  <a href="#fotos">Fotos</a>
+  <a href="#videos">Vídeos</a>
+  <a href="#trabalhos">Trabalhos</a>
+  <a href="#alunos">Alunos</a>
+  <a href="#professores">Professores</a>
+</div>
+
+<div class="section" id="fotos">
+  <h2>Fotos</h2>
+  <!-- Conteúdo da seção de fotos -->
+</div>
+
+<div class="section" id="videos">
+  <h2>Vídeos</h2>
+  <!-- Conteúdo da seção de vídeos -->
+</div>
+
+<div class="section" id="trabalhos">
+  <h2>Trabalhos</h2>
+  <!-- Conteúdo da seção de trabalhos -->
+</div>
+
+<div class="section" id="alunos">
+  <h2>Alunos</h2>
+  <!-- Conteúdo da seção de alunos -->
+</div>
+
+<div class="section" id="professores">
+  <h2>Professores</h2>
+  <!-- Conteúdo da seção de professores -->
+</div>
+<footer>
+    <p>Siga-nos no Instagram:</p>
+    <!-- Link para a página da sua turma no Instagram -->
+    <a href="https://www.instagram.com/terceiro_tds?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <!-- Ícone do Instagram -->
+      <img class="instagram-icon" src="/img/instagram.png" alt="Instagram">
+    </a>
+  </footer>
+<script>
+  // Função para rolagem suave ao clicar nos links da barra de navegação
+  document.querySelectorAll('.navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>
