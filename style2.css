@@ -5,7 +5,6 @@
 body {
     margin: 0;
     padding: 0;
-    /* background-image: url(/img/background1.png); */
     background-color: #BEB8FF;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,7 +17,7 @@ body {
     background-color: #3B2F4A;
     color: #E9E7C6;
     text-align: center;
-    padding: 18px 0;
+    padding: 25px 0;
     position: relative;
     height: 77px; /* Altura aumentada para ilustração */
     display: flex;
@@ -100,7 +99,7 @@ body {
     background-color: #3B2F4A;
     color: #fff;
     text-align: center;
-    padding: 5px;
+    padding: 20px;
   }
   /* Estilos CSS para o ícone do Instagram */
   .instagram-icon {
