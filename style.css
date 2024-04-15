@@ -18,7 +18,7 @@ body {
     background-color: #3B2F4A;
     color: #E9E7C6;
     text-align: center;
-    padding: 18px 0;
+    padding: 19px 0;
     position: relative;
     height: 77px; /* Altura aumentada para ilustração */
     display: flex;
@@ -173,4 +173,75 @@ input[type="submit"]:hover {
 
 .container .btn:hover {
   background-color: #0056b3;
+}
+.section{
+  text-align: center;
+}
+/* Estilo para a seção de fotos da turma */
+#fotos-turma {
+  text-align: center;
+}
+
+/* Estilo para o título */
+#fotos-turma h2 {
+  margin-bottom: 20px;
+}
+
+/* Estilo para o container de fotos */
+.turma-fotos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilo para cada foto */
+.turma-foto {
+  width: 200px;
+  margin: 10px;
+  position: relative; /* Adiciona posição relativa para posicionar o botão */
+}
+
+.turma-foto img {
+  width: 100%;
+  height: auto;
+  border: 8px solid #fff; /* Adiciona uma borda branca */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
+}
+/* Estilo para o botão */
+#addFotosBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addFotosBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Oculta o input de arquivo */
+#inputFileTurma {
+  display: none;
+}
+/* Estilo para o botão */
+.remover-foto-btn {
+  position: absolute; /* Posiciona o botão absolutamente */
+  bottom: -20px; /* Move o botão para fora da foto */
+  left: 50%; /* Alinha o botão ao centro horizontal */
+  transform: translateX(-50%); /* Centraliza o botão horizontalmente */
+  background-color: #ff0000; /* cor de fundo vermelha */
+  color: #fff; /* cor do texto branca */
+  border: none; /* remove a borda */
+  padding: 5px 10px; /* espaçamento interno */
+  border-radius: 5px; /* bordas arredondadas */
+  cursor: pointer; /* cursor de apontar */
+  z-index: 1; /* Garante que o botão fique acima da imagem */
+}
+
+.remover-foto-btn:hover {
+  background-color: #cc0000; /* altera a cor de fundo ao passar o mouse */
 }

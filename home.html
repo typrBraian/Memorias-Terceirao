@@ -14,18 +14,20 @@
   
 
 <div class="navbar">
-  <a href="#fotos">Fotos</a>
+  <a href="#fotos-turma">Fotos</a>
   <a href="#videos">Vídeos</a>
   <a href="#trabalhos">Trabalhos</a>
   <a href="#alunos">Alunos</a>
   <a href="#professores">Professores</a>
 </div>
 
-<div class="section" id="fotos">
+<div class="section" id="fotos-turma">
   <h2>Fotos</h2>
-  <!-- Conteúdo da seção de fotos -->
+  <div class="turma-fotos" id="turma-fotos"><!-- Aqui as fotos da turma serão adicionadas dinamicamente -->
+  </div>
+  <input type="file" id="inputFileTurma" accept="image/*" multiple>
+  <button id="addFotosBtn">Adicionar Fotos</button>
 </div>
-
 <div class="section" id="videos">
   <h2>Vídeos</h2>
   <!-- Conteúdo da seção de vídeos -->
@@ -38,6 +40,7 @@
 
 <div class="section" id="alunos">
   <h2>Alunos</h2>
+
     </div>
 
 <div class="section" id="professores">
@@ -67,6 +70,83 @@
       });
     });
   });
+  document.getElementById('addFotosBtn').addEventListener('click', function() {
+  document.getElementById('inputFileTurma').click();
+});
+
+document.getElementById('inputFileTurma').addEventListener('change', function() {
+  const turmaFotosContainer = document.getElementById('turma-fotos');
+  const files = Array.from(this.files);
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const imgSrc = e.target.result;
+      const turmaFoto = document.createElement('div');
+      turmaFoto.classList.add('turma-foto');
+      turmaFoto.innerHTML = `
+        <img src="${imgSrc}">
+        <button class="remover-foto-btn">Remover</button>
+      `;
+      turmaFotosContainer.appendChild(turmaFoto);
+      
+      // Adiciona um event listener para o botão de remover
+      const removerBtn = turmaFoto.querySelector('.remover-foto-btn');
+      removerBtn.addEventListener('click', function() {
+        turmaFotosContainer.removeChild(turmaFoto);
+      });
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+function adicionarFoto(idElemento, caminhoFoto) {
+    // Verificar se o elemento existe
+    var elemento = document.getElementById(idElemento);
+    if (!elemento) {
+        console.error("Elemento não encontrado.");
+        return;
+    }
+    
+    // Criar um elemento de imagem
+    var novaFoto = document.createElement("img");
+    novaFoto.src = caminhoFoto;
+    
+    // Adicionar a nova foto ao elemento
+    elemento.appendChild(novaFoto);
+    
+    // Adicionar um botão de remover
+    var removerBtn = document.createElement("button");
+    removerBtn.textContent = "Remover";
+    removerBtn.addEventListener("click", function() {
+        elemento.removeChild(novaFoto);
+        elemento.removeChild(removerBtn);
+    });
+    elemento.appendChild(removerBtn);
+}
+
+function removerFoto(idElemento) {
+    // Verificar se o elemento existe
+    var elemento = document.getElementById(idElemento);
+    if (!elemento) {
+        console.error("Elemento não encontrado.");
+        return;
+    }
+    
+    // Remover a última foto do elemento, se existir
+    if (elemento.lastChild) {
+        elemento.removeChild(elemento.lastChild);
+    }
+}
+var removerBtns = document.querySelectorAll('.remover-foto-btn');
+    removerBtns.forEach(function(btn) {
+      btn.style.backgroundColor = "#ff0000";
+      btn.style.color = "#fff";
+      btn.style.border = "none";
+      btn.style.padding = "5px 10px";
+      btn.style.borderRadius = "5px";
+      btn.style.cursor = "pointer";
+    });
 </script>
 
 
